@@ -1,0 +1,33 @@
+Predicate<T>:
+To test a condition 
+boolean test(T t);
+
+BiPredicate<T,U>
+To test a condition with two arguments.
+boolean test(T t,U u)
+
+Function<T,R>
+Take something(method argument) and return something(return type of method).
+R apply(T t)
+R is the return type and T is the argument of the function.
+
+BiFunction<T,U,R>
+It takes two inputs and produces a result. 
+R apply(T t,U u)
+In the above T,U are the arguments to the function
+R is the return type of the function.
+
+Consumer<T>
+Uses or process data it takes something but returns nothing.
+accept(T t)
+
+BiConsumer<T,U> - takes two arguments
+
+Supplier<T>
+produces / provides data,it takes nothing(no arguments passed),
+but returns something(method with returntype)
+
+Predicate checks,
+Function transforms,
+Consumer consumes,
+Supplier supplies.

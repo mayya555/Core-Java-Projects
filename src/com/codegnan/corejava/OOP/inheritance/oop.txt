@@ -1,0 +1,97 @@
+this:
+
+this is a keyword which is used to refer to the current object.
+
+
+public EmployeeDet(int id,String name,String companyName,double salary) --->
+                                                  inside bracket are called constructor arguments or constructor parametres 
+
+in main class while declaring employee emp = new employee(100,"suraj","codegnan",50000) ------>
+                                                   here inside bracket are called actual arguments or formal arguments.
+
+
+
+We use this keyword in the constructor to refer to the object property.
+
+When we have the same name for a variable in the constructor argument, we have to use 
+   this keyword before the variable name.
+
+
+eg: 
+    public Employee(int id,String name,String companyname,double salary) {
+		
+		this.id = id;
+		this.name = name;
+		this.companyname = companyname;
+		this.salary = salary;
+	}
+
+
+In the above constructory,if 'this' is not used before the variable, you will get unexpected result,
+   beacause the runtime environment faces ambiguity(confusion).
+   
+
+The default values for instance variables:
+==========================================
+
+byte    0
+short   0
+int     0
+short   0
+float   0.0
+double  0.0
+char    empty char \n000
+boolean false
+
+
+
+String   null
+Integer  null
+Double   nll
+Employee null
+Student  null
+
+Static will also have similar default values.
+
+Local variables will not have default values.
+You have to initialize a local variable before using it.
+
+
+
+
+
+super:
+
+1. - super is a keyword or a predefined word in java programming language.
+
+     1. It can be used in two ways -
+     - super()
+     - super keyword with parenthesis
+     - super() is used to call a super class constructor from child class constructor
+       -eg: super();
+        super(100,"Ram");
+        
+     2. super
+      - super without parenthesis
+      - It is used to access a super class attribute.
+        eg:   super.id;
+
+
+2.Every class , when created , will have a default implicit constructor created.
+  - This implicit constructor will have super() as its first statement in the constructor body.
+  - Meaning , it calls a super class constructor.
+  - Since "Object" is the super class of all the java classes , super() will call the Object class Constructor.
+  
+  
+  
+3. When a class extends another class explicity with "extends" keyword:
+   for eg: if class B extends class A then
+       class B's implicit constructor will have a super() as its first statement.
+       and it will call Class A's default constructor since class A is the super class or the parent class.
+       
+       
+4. we can even call a parametrized constructor in the parent class by 
+    using super(arguments)
+    
+    eg:
+  

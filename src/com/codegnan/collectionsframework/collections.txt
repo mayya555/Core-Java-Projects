@@ -1,0 +1,361 @@
+	Iterable Interface:
+	Iterable is the root interface which makes an object eligible for iteration 
+	using enhanced for loop.
+	
+	Collections implement Iterable 
+	
+	for eg:
+	ArrayList-> List -> Collection -> Iterable
+	
+	- Most important method	 of Iterable interface is
+	   Iterator<T> iterator()
+	   
+	- It provides an Iterator object which can move through elements one by one.
+	
+	
+	ConcurrentModificationException:
+	================================
+	ConcurrentModificationException occurs when a collection is structurally 
+	modofied unexpectedly while it is being iteration.
+	
+	Structural Modification: Adding or removing elements in such a way that is changes
+	 the structure of the collection.
+	 
+	Concurrent does not mean mutliple threads, this exception can occur even 
+	with a single thread.
+	
+	
+	Reason for Exception when enhanced for loop is used:
+	====================================================
+	ArrayList internally uses the iterator, in the enhanced for loop 
+	 the iterator traverses/iterators the list.
+	- countriesList.remove() in example,modifies the list directly.
+	- iterator detects unexpected modification in the structure.
+	- so,the concurrent modification exception is thrown
+	= the problem occured because the collection is modified directly
+	   while iterator is traversing the collection.
+	eg:countriesList.remove(country); //here remove is the method of arraylist
+	
+	When iterator is explicitly used:
+	===================================
+	iterator.remove() is a method which is specifically designed to safely 
+	remove the current element during iterator.
+	eg:iterator.remove();
+	
+	
+	FailFast:
+	=========
+	ArrayList iterator is known as failfast iterator.
+	 A Fail fast means when ever an iterator detects unexpected structural modification
+	 to the collection during iteration,the iterator quickly throws
+	 councurrentModificationException.
+	 
+	 
+	Collection Interface:
+	--------------------------
+	Collection extends Iterator
+	Important methods:
+	add()
+	remove()
+	contains()
+	size()
+	isEmpty()
+	clear()
+	iterator()
+	
+	- Most of the Collections framework classes provide implementation
+	 to the above methods.
+	 
+	List Interface:
+	--------------
+	List extends Collection interface.
+	List represents the ordered collection of elements.
+	List allows duplicates.
+	List supports index
+	
+	
+	Important methods of List:
+	ger(index)
+	set(index,element)
+	add(index)
+	remove(index)
+	indexOf(element);
+	
+	Implementation classes of List:
+	ArrayList - implements List
+	 - It internally uses resizable array.
+	 - maintains insertion order
+	 - allows duplicates
+	 - fast random access using index
+	   (It internally implements RandomAccess interface)
+	 - Time complexity is o(1)
+	 - Inserting and removal in the middle may require shifting of elements
+	 - Array List is not synchronized
+	 
+	 ** It is best suited for Search operations,
+	 
+	LinkedList:
+	LinkedList also implements List.
+	It internally works different from ArrayList
+	- It 
+	
+	
+	09/09/2026 
+	Stack:
+	
+	Stack is a class in java.util.package
+	It represents a LIFO (Last in First Out) daa structure
+	The last element inserted is the first element removed.
+	
+	eg: Stack of books on a table 
+	    Stack of plates on a table.
+	    
+	     Stacks extends Vector.
+	     So, Stack indirectly implements the List interface
+	Since, Stack extends Vector , its inherited methods
+	are synchronized.
+	Methods:
+	1.push() - add element to the top
+	2.pop() - removes and returns the top element
+	3.peek() - returns the top element without removing
+	Stack allows duplicates
+	It maintains insertion order.
+	
+	
+	Cursors:
+	========
+	A cursor is an object used to traverse or access elements of a collection 
+	one by one.
+	
+	In java colllections framework, we have 3 main cursors:
+	1.Enumeration:
+	  - Oldest cursor in java
+	  - It is mainly used with Vector and Hashtable
+	  - Enumeration can retrieve elements but it cannot remove them.
+	  Methods:
+	  hasMoreElements()
+	  hasNextElements()
+	
+	
+	2.Iterator:
+	Iterator is a cursor used to traverse elements of collection one by one 
+	in forward direction.
+	
+	Iterator is an interface
+	It works with most Collection implements like:
+	ArraysList,Linkedlist,Vector,Stack,HashSet,LinkedHashSet,TreeSet
+	- It can read and remove elements while traversing 
+	- It does not provide add() and set() methods.
+	- Iterator is uni-directional , traverses only in forward direction
+	
+	Methods:
+	hasNext()
+	next()
+	remove()
+	
+	3.ListIterator:
+	ListIterator extends Iterator interface
+	It is available only for List implementations
+	Examples: ArrayList, LinkedList, Vector and Stack
+	It suuports bidirectional traversal. - forward and backward
+	It can read, add, remove and replace elements during iteration.
+	
+	
+	Set:
+	Its an interface in java.util
+	Its implementations are:
+	- HashSet, LinkedHashSet, TreeSet
+	HashSet:
+	HashSet do not allow duplicates
+	HashSet will not maintain insertion order.
+	
+	For classes like String, Java already provides proper
+	equals() and hashCode(). So if duplicate Strings or Integers
+	are added into the HashSet , HashSet can detect that 
+	they are duplicated.
+	
+	For custom classes like Student,
+	even though the two objects are having similar data, 
+	HashSet considers them as two different objects
+	Because the equals() method in HashSet will check only
+	the object identity(address).
+	
+	We need to  override equals() and hashcode() to avoid 
+	duplication of custom objects.
+	
+	For this, first we need to find the logical definition of equality
+	for eg: for Student object,
+	we can say, that two students are same if their studentId is same
+	OR
+	for Employee Object:
+	we can say , that two 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Comparable interface :
+======================
+
+comparable is an interface , it is used to define the natural or default ordering of objects of a class 
+
+for eg : if we have many employeeobjects , java does not automatically know whether employees should be stored by id or my name or something else
+
+By implementing comparable interface , we can tell java how to sort the employee objects by overriding the method compareTo
+
+comparable interface is available in java.lang package it is generic interface 
+
+theclass whose objects need to be compared implements comparable interface 
+
+we override the compareTo method 
+
+compareTo() method:
+
+syntax:
+object1.compareTo(object2)
+
+eg: emp1.compareTo(emp)
+
+- compareTo(0 method returns an integer value)
+
+
+-> It returns the negative value when the current object must come
+before the other object
+
+-> It returns zero if both are equal for sorting
+
+-> It returns a positive value when the current object must come 
+after the other object.
+
+
+Comparator:
+============
+Comparator is an interface.
+It is used to define custom sorting logic for objects
+It is present in java.util
+
+
+With comparable, we can define only one natural ordering 
+inside the table.
+
+With comparator, we can define multiple different 
+sorting rules outside the class.
+
+It has a method:
+int compare(T obj1, T obj2);
+It compares two objects at a time.
+
+
+compare() method returns an int value:
+It returns a negative value when the current object 
+must come before the other object.
+
+
+It returns zero if both are equal for sorting
+
+It returns a positive value when the current object must come 
+after the other object.
+
+
+Comparator vs Comparator:
+==========================
+1.Comparable is in java.lang
+  Comparator is in java.util
+
+2.Comparable must be used in the same class.
+  Comparator is used in an external different class which is
+    used as Custom Comparator
+    
+3.Comparable interface has a single method
+     int compareTo(T o)
+  Comparator interface has a method:
+     int compare(T o1, T o2)
+     
+4.Comparable defines natural/default ordering of a class
+  Comparator defines custom ordering.
+  
+We use Comparable1 when there is only way to sort the objects.
+We use Comparator when we need different ways to sort 
+  the same objects.
+  
+  
+  
+12/09/2026
+
+we use comparablel when there is only way to sort the objects 
+we use comparator when we need different ways to sort the same objects 
+
+AAdhar - citizen
+STDcode - place
+
+
+Map :
+=====
+
+map is used to store data in the form of key value pairs
+
+eg:
+
+key           value
+
+aadhar id   -  citizen
+employee id  - employee
+roll no     -  student
+username    -   user
+
+
+-  data is stored in key - value pairs
+
+eg :
+
+hashmap map = new hashmap();
+map.put("100001","ravi");
+map.put("100002","ravikumar");
+
+- keys must be unique
+- values can be duplicated
+- each key is associated with only one value 
+- a value is retrieved using its key
+- map is not a child of the collection interface 
+- map is a part of collections framework , but map does not extend collection interface 
+
+different implementation classes of map interface :
+1 . hashmap
+2 . linkedhashmap
+3 . treemap
+4 . hashtable
+
+
+
+HashMap Terms & methods:
+Entry: Represents one key-value pair in a Map, .Its type is Map.Entry<K,V>\
+entrySet(): Returns a set containing all entries (Key-value pairs) of the Map.
+            We use it when we need both key and value
+
+getKey(): returns the key from Map.Entry
+           eg: entry.getKey()
+           
+getValue() - Returns the value from a Map.Entry
+            eg: entry.getValue()
+
+put(Key,Value): Adds a new Key-value pair.
+           IF they key is already exsiting , its old value is replaced with new 
+           value.
+           
+           
+get(key): returns the value associated  with the given key.
+keySet(); returns the set of all keys in the map
+values(): returns a Collection containing all values in the map.
+            Values may contain duplicates
+containsKey(key): checks whether the specified key exists and returns boolean/
+
+
+LinkedHashMap
+=============
+It stores elements
+

@@ -1,0 +1,15 @@
+String has two types :
+1. by using new keyword(rarely) 
+2.by using literal(mainly used)
+
+originally in object class the equals it compares the reference
+but in string 
+
+
+
+====================ToString :
+
+ToString method is present in the object class by default tostring method  behaves like this .
+
+
+when ever we try to print object reference the toString will call.

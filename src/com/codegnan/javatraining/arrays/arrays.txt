@@ -1,0 +1,165 @@
+Using toString():
+
+----------------
+
+toString() method is present in object class,
+Object is the root class of all java classes
+Object class is present in java.lang package
+
+
+toString() returns the String 
+-the default behaviour of toString() is to 
+display the fully qualified name of the class with hashacode.
+
+
+
+Instantiation: Instantiation is nothing but creation of an instance(object).
+Initialization: providing the values to object properties.
+
+
+Single Dimension Array:
+-----------------------
+
+An array whose elements can be accessed with a single index is known as 
+Single dimensional array.
+
+Eg:
+String[] countryNames= {"India","US","Australia"};
+
+//Now , the elements in countryNames array can be accessed using single index as below:
+
+countryNames[0] //India
+countryNames[1] //"US"
+countryNames[2] //"Australia"
+
+
+Multidimensional Array:
+======================
+A multidimensionl array is an Array of Arrays.
+It stores data in two or more dimesions.
+Each element in mutlidimensional arrays are accessed with mutliple indices.
+
+
+Multidimensionl array creation syntax:
+1.datatype arrayName[][] = new datatype[rows][columns];
+
+The above is a 2 dimensional array.
+It must be declared by specifying the numeber of rows and columns for the array 
+
+eg:
+
+int marks[][] = new int[2][3];
+In the above example, int[2][3] means,
+ 2 rows in an array , with 3 columns in each row.
+ 
+
+In a 2 dimensional array , arrayName.length will return the 
+number of rows of an array.
+
+eg. sMarks.length will return the number of rows in sMarks array.
+
+arrayName[i].length will give the number of columns in eah row.
+where i is the row index.
+
+
+To work with a 2 dimensional array , we need two for loops.
+- outer for loop and an inner for loop.
+Outer for loop represents the rows of an array
+and inner for loop represents the columns in a particular row.
+
+
+
+
+RaggedArray or Zagged Array:
+---------------------------
+A ragged array also known as Zagged Array is an array with different number of columns 
+in each row.
+
+To create a Ragged Array,we can use the inline Array creation approach or normal 
+declaration with new keyword.
+
+Zagged Array creation with new keyword syntax:
+-----------------------------------------------
+datatype[][] arrayname = new datatype[size][];
+
+Since the number of columns are not constant and as they vary for each row,
+we do not specify the column size while declaring the array.
+
+
+
+ArrayIndexOutOfBoundsException:
+--------------------------------
+An exception is nothing but an abnormal condition.
+when an abnormal condition occurs in the program the JVM terminates the program.
+
+
+ArrayIndexOutOfBoundsException is a Runtime exception that is thrown by Virtual machine when you 
+try to insert the element with an index more than the specified size.
+
+
+Task 
+===========
+Stores the sales in a 2D array and display:
+
+All sales.
+Total sales of each salesperson.
+Grand total sales.
+
+sample data
+---------
+
+12000 15000 18000
+10000 11000 14000
+17000 16000 19000
+13000 12500 14500
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Task2:
+
+create an employee array to store employee objects
+
+Employee will have the following attributes:
+- empId
+- empName
+- empAge
+- empSalary
+
+store 2 objects of Employee in a EmpArray
+
+- use Constructor with arguements to create employee
+- override toString() method to display employee objects
+
+most importtant toString() and Constructor  

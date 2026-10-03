@@ -1,0 +1,21 @@
+volatile:
+=========
+
+volatile is a modifier used with variables.
+It is also called as a non-access modifier
+
+It is used in multithreading where multiple threads
+access/share the same variable.
+
+syntax:
+accessmodifier volatile datatype variablename = value'
+eg:
+private volatile boolean running = true;
+
+when a variable is declared as volatile , the thread will access the
+ latest value written by another thread.
+
+ 
+volatile helps to provide visibility between threads, 
+meaning,one thread can see the value
+updated by another thread immediately.

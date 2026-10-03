@@ -1,0 +1,37 @@
+printf formatters:
+==================
+
+%s - String
+%d - integer
+%f - decimal
+%.2f - a decimal with 2 digits after the decimal 
+%c - character
+%b - boolean
+%n - new line
+%10s - means String right aligned with width 10.
+%-10s - means String left aligned with width 10. 
+
+
+
+
+Transient modifier:
+===================
+transient modifier is a non access modifier used with instance variables of a class.
+It is mainly used during serialization.
+A field declared with transient modifier is not seraialized when an object is
+seraialized.
+
+It is generally used for data that we do not want to save as part of the 
+objects serialized state.
+
+Examples of fields where we can use tranisent:
+password
+variables for temporary calculation
+Fields that should not be persisted
+
+During serialization , transient fields recieve their defauly values because 
+their values are not stored
+
+Syntax:
+
+accessmodifier transient dataType variableName;\

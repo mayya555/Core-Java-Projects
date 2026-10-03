@@ -1,0 +1,231 @@
+Thread:
+A thread is an executional path or a sequence in the program.
+
+Process:
+When u try to use any application in your computer, the Os will 
+create an instance of that application in the memory.
+This instance is called a process.
+Process is also known as "Context" of the application.
+
+
+Each Process will have :
+  - ProcessID or PID
+  - Files which the application uses for reading or writing the data
+  - Code of the program which will have the data needed for the application
+  - main thread:
+  ==============
+  - main thread is the thread used by JVM to execute the program.
+  - It will have a Stack and Instruction Pointer
+     Stack: a region in the memory to store local variables , obj. references 
+     etc.
+     Instruction Pointer: A pointer which points to the address of the next
+        Instruction which thread is going to execute.
+        
+        
+        
+        
+Process vs Thread:
+===================
+
+
+Memory:
+    Process will have its own memory
+    Thrreads will share the memory with other threads in the process.
+    
+    
+Weight:
+    Process is heavy weight , as it takes more time to start and stop the process 
+    , it cosumes more resources(memory).
+    Thread is light weight, it takes very less time to start and stop 
+    and occupies less amount of memory.
+    
+    
+    Thread is a class present in java.lang.package. 
+    
+    
+    
+Java provides two ways to create a thread:
+
+1.By Extending Thread class
+  steps:
+  a.Create a class that extends Thread
+  b.override the run() method
+  c.write the task or work inside the run() method
+  d.Create an object of the class
+  e.call the start() to start a new thread.
+    never call run() method directly to start a method
+  f.the new thread executes the run() method.
+  
+  *** run() method defines the work
+  *** start() method starts a new thread
+  
+  
+2.By implementing Runnable interface
+  steps:
+   a.create a class which implements Runnable interface
+   b.override the run() method
+   c.write the task/work inside run()
+   d.To use the thread created by implementing Runnable interface
+     Create an object of the task(runnable) class
+     Pass the runnable object to a Thread object.
+     call start() method on the Thread object
+     the new thread executes the runnable's run() method.
+     
+     
+
+LifeCycle or states of thread:
+-------------------------------
+A Thread moves through different stages from creation to completion.
+
+
+There are 6 states of thread:
+
+New State:
+  A thread has been created but start() method is not yet called.
+
+eg: Thread t = new Thread(task);
+
+In the above thread object is created but thread not started.
+
+Runnable State:
+===============
+when start() method is called, the thread enters the RUNNABLE State.
+eg: t.start();
+
+  - Thread is ready and waiting for CPI
+  - Once CPU schedules this thread, the thread will start executing
+  - ThreadScheduler decides which runnable thread gets CPUtime.
+  
+  
+
+3.BLOCKED state
+A thread goes into BLOCKED state when it is waiting to acquire a lock to 
+synchronized code.
+
+
+4.WAITING STATE:
+ A thread enters waiting state when it waits for another thread.
+ 
+
+5.timed-waiting:
+  A thread enters TIMED_WAITING state when it waits for specific amount of time.
+  eg:sleep(1000);
+
+
+6.TERMINATED state:
+  A Thread enters TERMINATED state when it run() method finishes 
+  execution.
+  
+join() method:
+===============
+
+join() methods used when one Thread has to wait for another thread to finish.
+
+join() makes the currently executing thread to wait until the 
+thread on which join() is called completes.
+
+syntax:
+thread.join()
+
+eg: task.join()
+
+ Note: In the above,it does not mean that task thread is waiting.
+       task thread will execute and currently running thread ()main thread
+       will wait until task thread completes.
+    
+** We use join() when the next operation depends on the result of another thread.
+
+- We can specify the maximum waiting time for join() method
+eg:thread.join(2000);
+It means that current thread waits upto 2000 milliseconds for thread.
+
+-- join() method throws a checked exception called InterruptedException
+   Since its a checked exception, we must handle or declare it.
+   
+-- join() is an instance method of Thread class.
+-  It is used for thread coordination.
+
+
+Method Synchronization:
+========================
+Synchronization:
+When multiple threads access and modify the shared data,
+incorrect results may occur because threads can execute simultaneously
+
+Synchronization is a mechanism used to control access to a shared 
+resource when multiple threads are executing concurrently.
+
+It prevents race condition
+Race condition: Race condition is a condition when multiple threads try to 
+modify the shared resource.
+
+To avoid this race condition we use a keyword "synchronized"
+
+When thread enters a synchronized method it acquires the lock of the object.
+
+Other threads trying to execute the synchronized method on the same object 
+must wait until the lock is released.
+
+When a thread is executing synchronized method, no other thread will 
+interrupt in the middle.
+
+When thread completes its task, it releases the lock and changes made by thread 
+will updated in the main memory.
+
+Then , the next thread acquires the lock, it reads the values from the main memory.
+
+
+
+
+
+
+
+
+
+
+When threads are working with the same shared resource , these methods allow 
+the threads to coordinate with each other.
+
+1.wait():
+wait() makes the current thread wait until another thread notifies it.
+
+wait() method releases the monitor/lock of the object o whichwait is called.
+
+wait() is normally used inside synchronized method or block.
+It throws InterruptedException
+We normally use wait() inside a loop, so that the condition is 
+checked again after waking.
+
+
+2.notify():
+notify() methods gives a signal to a thread that is waiting on the same 
+objects monitor.
+
+3.notifyAll();
+When multiple threads are waiting for a resource , notifyAll() method is called to send
+a signal to all threads.
+
+Example of Producer and Consumer
+
+Producer:
+
+1. When the messagebox is full, the Producer waits by calling wait()
+2. Producer produces the message only when the MessageBox is empty.
+3. Once producer produces the message, it calls notify() method
+   to signal the Consumer that the Message is available.
+4.Now , the Consumer can consume the available message in the MessageBox
+
+Consumer:
+
+1.When the MessageBox is empty , the Consumer waits by calling wait()
+2.Consumer consumes the message only when the MessageBox is full.
+3.Once consumer consumes the message, it calls notify() method
+  to signal the Producer that the Message has been consumed
+4.Now, the producer will produce the message in the MessageBox.
+
+
+
+
+
+
+

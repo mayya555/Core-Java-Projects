@@ -1,0 +1,174 @@
+Methods:
+
+Method is a block of code which is used to perform a specific task.
+
+- main method is a special method is a class,JVM looks for main method to start a program. 
+eg:to perform addition we create a method named addition as:
+
+public void addition() {
+
+}
+
+A method is created inside a class.
+ 
+main() is a special method which is used by JVM  as a starting point to exexute the code.
+
+we must not write all the code inside a main method.
+
+To make the code easily understandable(readable) we will divide the code into different parts depending on their 
+functionality.
+
+Syntax to create a method:
+--------------------------
+
+displayDetails()  - camel case
+
+accessmodifier returntype methodName(method argruments) {
+
+// method body
+
+}
+
+access modifiers: - public , private, protected , default
+-----------------
+public: accessed from a same class , different class or from a class
+  in different package.
+  
+  
+return type:
+------------
+ The type of value 
+ 
+ 
+ 
+ 
+ 
+ Method Invocation:
+ 
+ After creating the method for eg:getCourseDetails(); in a class Course:
+ 
+ 1.we need to create a object of class.
+ 
+   for eg: Course course = new Course();
+   
+2.we use the object reference
+   eg: course is the object reference in step1
+   
+3.Syntax to invoke/call the method:
+
+   objectReference.methodName();
+   eg: course.getCourseDetails()
+   
+   
+   
+   
+   
+Method with return type: 
+========================
+A method with a run type is a method:
+1.that performs a task and
+2.produces a result,
+3.sends that result back to the method which called it
+   using retun statement.
+   
+accessmodifier returntype methodName(method argruments) {
+
+// method body
+   return value;
+}
+
+accessmodifier - it can be public , private etc
+returntype - the data type of the value which the method
+returns(int , double,String,Employee etc)
+return : return is a statement which is used at the end of the method
+         it returns a value of the specified return type to the caller.
+         
+         
+         
+         
+         
+       
+A Method with arguements and without return type:
+------------------------------------------------
+
+public void methodName(argumentType1 argument1VariableName, argumentType2 argument2VariableName) {
+  //method body
+  
+}
+
+--> A method can be created in Java by providing the arguments.
+--> Arguments are enclosed in the parenthesis beside the method Name.
+--> Arguments are nothing but the input values passed to the method.
+--> The method will use these input values or argunments to process a task.
+
+
+Task:
+=====
+
+create a class "course" - courseId, courseName,courseDuration
+  - use a parameterized constructor that can initialize course objects.
+
+create 3 course objects
+
+create an array of course object and store the 3 course objects.
+
+create a method called displayCourseList(Course[] course)
+
+Inside the method use enhanced for loop to display the details of each course.   
+
+Invoke the method displayCourseList to print the details of each course.
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+It means a copy ofthe variables value is passed to the method.
+The called method recieves its own copy of the variable.
+
+
+
+Syntax:
+methodName(Variable)
+
+
+Call by Reference or Pass by Reference:
+--------------------------------------
+Passby reference means the actual memory address(reference) of the variable is 
+passed to the method.
+The called method works on the original variable.
+A copy of the object reference is sent to the method.
+
+
+
+We say that Java supports only pass by value.
+
+
+- Java is called pass by value because it always passes a copy of the argument
+  to a method.
+It will never pass the original variable.
+
+
+Even when an object reference is passed, java passes a copy of the object
+reference,
+It will not pass the original object reference.
+
+
+Therefore we can say that java only pass by value and not passby reference.
+
+
+
+A method without argument and without return type.
+A method with argument and without return type.
+
+A method with without argument and with return type.
+A method with argument and with return type.
+
+
+
+
+   

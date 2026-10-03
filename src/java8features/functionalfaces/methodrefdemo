@@ -1,0 +1,5 @@
+
+1.Method Reference is a shorter way of writing lamba expression
+2.It is generally used when the lambda is only calling an existing method.
+3.It uses the double colon operator ::  .
+  This operator is also knwn

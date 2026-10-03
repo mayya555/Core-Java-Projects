@@ -1,0 +1,139 @@
+String is a predefined class in java.
+
+String is an array of characters.
+
+String class is present in java.lang package , (java.lang need not be imported)
+
+String can be created in 2 ways:
+
+1.using new keyword
+2.using a literal( literal is a constant value assigned to a varaiable)
+
+Syntax using new:
+
+String objRef = new String("Stringvalue");
+
+Syntax for String literal:
+String objRef = "String value";
+
+ Strings created using new keyword will be created in heap memory.
+  Strings created with new keyword will be created  in the  Heap memory , regarding of 
+   whether it already exists in the heap or not.
+
+
+Strings created using literal will be created inside a special memory region in Heap 
+  called String constant pool.
+- When a string literal is created , the JVM  checks if its already existing and 
+  String object will be created in SCP only when it is not already existing 
+  
+  
+ 
+== operator  vs equals method in String:
+=======================================
+
+== operator in primitive data types is used to compare the value of variables
+   But when == operator is used with objects , it compares the object references.
+   
+Syntax of ==   :
+
+  string1 == string2;
+  
+  
+equals():
+ equals is present in java.lang.Object which is the root of all java classes.
+ By default equals() in object class is for comparing references.
+ 
+ 
+ But String class overrides the default behaviour of equals () method to compare the content 
+  of 2 String objects.
+  Syntax of equals();
+  
+    String.equals(string2);
+    
+    
+ 
+
+String Immutability:
+===================
+
+  - String is immutable object.
+  - Immutable means unmodifiable or unchangable.
+    Immutable is opposite to Mutable.
+    Mutable means something which can be modified, or something which can be changed.
+    
+    
+  - Once a String is created it cannot be modified.
+  - String Provides methods like concat() , which allows us to 
+    combine Strings.
+  - But  when these methods are used, JVM will create a new String in the memory, 
+    instead of modifying the existing String.
+    
+    
+Garbage Collection:
+  - Garbage Collection is a JVM mechanism that removes unused objects from the memory
+    for efficient management of the memory.
+  - Garbage collector is a JVM component which identifies the dereferenced objects.
+    Dereferenced objects are 
+    the objects which are not being referenced by any reference variable.
+  - Such objects which have no reference are generally termed as orphaned objects.
+  - Garbage collector identifies such objects and removes them from the memory
+    and creates more space in the memory.
+    
+    
+    Employee emp = new Employee();  //object is created and referenced by emp 
+    emp = null; // now Employee object is eligible for garbage collection because
+                    it is no longer referenced by emp.
+                    
+    Using System.gc() for garbage collection:
+    We can use a method in System class called gc() to request the JVM to perform 
+    garbage collection by executing the following method:
+    
+         System.gc();
+         
+    But JVM will cannot guarantee the garbage collection even though the gc() method is called 
+    JVM will run Garbage collector depending on its internal timing.
+    
+    Garbage collection is one of the important factor
+    Which makes Java a Robust programming language
+    because of its Strong memory mangement features.
+    This makes Java program less error prone.
+    
+    
+    
+    Mutable Strings: Strings which can be modified after creation
+    ================
+    When we want to create strings which can be modified,
+    java provides us 2 classes to create 
+    Mutable Strings.
+    
+    1.StringBuilder
+    
+    Syntax to create a StringBuilder object:
+    StringBuilder sb = new StringBuilder("text");
+    
+    2.StringBuffer
+    
+    Syntax:
+    StringBuffer sb = new StrStringBufferingBuilder("text");
+    
+    
+    StringBuilder and StringBuffer - both these classes help us to create 
+    mutable Strings.
+    But the difference between these two classes is about Thread safety.
+    
+    
+    When you have multiple threads in your application(i.e multi threaded application)
+    it is not safe us to StringBuilder , because it allows multiple threads at a time 
+    to modify the same StringBuilder object which is very dangerous.
+    
+    In an application which uses multiple threads i.e in a multi envitonment 
+    StringBuffer is safe.
+    StringBuffer is safe because its methods are synchronized,
+    synchronized methods allows only one thread at a time to modify 
+    the same StringBuffer object and prevents inconsistent data/
+    
+    Thread safety: The ability of code or an object to be safely accessed or modified 
+    by multiple threads at the same time without causing incorrect or inconsistent data.
+    
+  
+

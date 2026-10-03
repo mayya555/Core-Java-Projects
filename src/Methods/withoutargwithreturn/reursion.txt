@@ -1,0 +1,70 @@
+Recursion:
+==========
+
+Recursion is a technique where a method calls itself.
+
+In recursion, instead of solving the entire problem at once , the problem
+ is repeatedly divided into smaller subproblems until the base condition is reached.
+ 
+It is generally used in:
+Binary search 
+Tree traversal 
+Merge sort
+etc.
+
+
+Recursive call: The statement where a method calls itself:
+eg: printNumbers1ToN(n-1);
+
+Base condition:
+It is also called base case.It is the stopping condition of recursion
+Without a base condition, recursion never stops\
+and it will lead to Program crash with the exception StackOverFlowException.\
+
+
+Call stack:
+Every method call is stored in a StackMemory.
+Each recursive call creates a new stack frame in the Stack Memory.
+
+
+
+Stack Frame:
+A Stack frame is created for every method call.
+Generally a stack frame stores:
+  - Method Parameters
+  - method variables or local variables.
+  - return address.
+  
+Recursive Depth:
+The total Number of recursive calls made before reaching the base condition.
+
+Unwinding:
+After the base condition is reached, recursive calls begin returning one after other.
+This Process is known as unwinding.
+
+
+
+Conditions for a Recursive Method:
+Every recursive method must satisfy following conditions:
+1.Recursive method must have a base condition
+  eg:
+     if(n==0) {
+			return;
+		}
+
+2.Recursive method must have a recursive call.
+  The method should call itself
+  eg:printNumbers1ToN(n - 1);
+  
+ 
+3.Each recursive call must move closer to the base condition.
+    eg:printNumbers1ToN(n - 1);  //n is decremented at each call,
+                                    finally becomes 0 and base condition is reached.
+                                    
+                                    
+StackOverFlowError:
+Recursion internally uses stack memory
+Due to repeated method calls, program might be slower
+If the code does not reach a base condition , then the recursive will n ever stop
+This causes stack memory to overflow (memory gets full) due to multiple stack traces
+Due to this the runtime environment stops the program by an error called "StackOverFlow".

@@ -1,0 +1,185 @@
+Syntax of try catch:
+====================
+try{
+//Exception causing code 
+
+} catch(Exception to be caught and handled e)
+
+
+
+try{
+// if an ArrayIndexOutofBoundException occurs
+//JVM creates an object of that Exception
+//this object can be accessed by using a reference variable
+//in the catch blocks paranthesis.
+
+
+} catch(ArrayIndexOutofBoundException ex) {
+  ex.printStackTrace();
+}
+
+
+Different combinations allowed with try block:
+---------------------------------------------
+
+
+try with single catch
+try with multiple catch
+try with catch followed by a finally
+try with multiple catches and a finally
+try with only finally block without catch block 
+
+try with catch - inside catch block you can have another try catch 
+  this is nested try catch.
+  
+A finally block can have different try catch blocks inside.
+
+
+
+
+Throws keyword:
+==============
+throws keyword is used in the method declaration.
+
+
+access modifier return type methodname(arguments) throws exception1,exception2...{
+//method body
+}
+
+example: 
+=======
+public void withDraw(double amount) throws exception{
+if(amount>balance){
+throw new exception("amount must be ess than balance");
+}
+system.out.println(amount+"amount withdrawn successfully");
+}
+
+
+
+}
+
+
+
+Throw and throws:
+=================
+
+throw is used to throw an exception
+throws is used to declare and propogate an exception
+
+throw is written inside the method body
+throws is written in the method declaration
+
+throw is followed by exception object 
+eg: throw is UserNotFoundException();
+
+throws is followed by exception name,
+eg: public void doSomething() throws UserNotFoundException{}
+
+throw will transfer the control immediately to the match catch or cller
+throws doesnot itself throw anything , it will just pass the exception object to the caller
+
+throw can be used with checked or unchecked exceptions 
+throws can be used to declare the checked or unchecked exceptions
+
+throw is generally used our code can detect the problem
+throws is used when the method doesnot handle exception and lets the caller to handle exception
+
+Exception propogation using throws keyword in method declarations:
+=================================================================
+
+exception propogation is the process of passing an exception from the current method to the caller for handling exception
+
+throw keyword in method declaration tells that the method is not handling the exception
+the exception moves up the method call stack until the method handles it by using try catch block 
+if no method handles the exception , it reaches the JVMs defuault exception handler and the program terminates abnormally
+
+
+
+
+
+custom exceptions or user defined exceptions
+============================================
+
+custom exceptions are the exceptions created by the developer to handle a specific problem which is not already handled by java predefined exceptions
+
+by creating custom exceptions:
+
+- > we can represent application - specific problems
+- > we can give a meaningful na, e tp thej exec[topms;
+- > we can handle different problems in a different way
+- > we can separate business errors from technical errors
+- > we can provide additional information about the problem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+try with resources
+
+
+Syntax:
+
+try(resource) {
+// code 
+}catch(Exception e) {
+//exception handling code
+}
+
+- Resources like FileReader,FileWriter..etc utilizes system resources.
+- Once the operation is completed these resources must be released.
+- To release these resources we need to call close() method in each of the
+  resources.
+  
+  
+  
+Generally we call the close() in the finally block to make
+sure that the resource is closed regardless of an exception.
+
+
+We can even avoid calling close() method explicity in finally block.
+To avoid calling close() method explicity:
+we need to use try with resources.
+
+try with resources has a seperate syntax, try followed with braces.
+Inside these braces we need create the resource for eg.  FileWriter
+
+
+When the resource is kept inside these braces,
+try with resource automatically close the resource.
+we dont have to call close() method explicity.
+
+
+The resources which are kept inside try with resources brackets,
+must implement Autocloseable interface.
+
+
+The resource implementing Autocloseable will be automatically closed.
+
+This avoids the Resource leakage problem in the application.
+
+
+Resource Leakage:
+=================
+
+When a program opens I/O streams like FileWriter, FileReader , Connection 
+Statement , Scanner etc.  but fails t0 close it after the use, 
+the System resource like file handles amd memory will remain occupied.
+
+This is called Resource Leakage.

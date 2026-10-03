@@ -1,0 +1,95 @@
+Queue
+=======
+
+Queue follows FIFO - First in First Out
+
+The element inserted first is removed first.
+
+- Queue is an inferface in java.util package
+
+It extends Collection interface
+
+important methods:
+size()
+isEmpty()
+contains()
+clear()
+
+Queue Specific method:
+=======================
+Insertion - add()       offer(e)
+
+add() method inserts an element
+Returns true if successful
+But if insertions fails it throws IllegalStateException
+
+
+offer()
+- Inserts an element
+Returns true if successful
+But if insertion fails it returns false.
+
+
+
+Implementations of Queue interface:
+1. LinkedList:
+- LInkedList is used as both List and Queue or Deque
+- Linkedlist implements both List and Deque interface.
+
+
+Deque interface:
+++++++++++++++++++
+- Deque stands for Double and ended queue.
+- It is called double ended queue because elements can be inserted
+   and removed from both ends, (both ends means front and rear)
+- LinkedList and ArrayDeque classes implements Deque interface
+
+ArrayDeque internally uses a resizable array
+LinkedList internally uses a doubly linked nodes.
+
+ArrayDeque occupies less memory as there are no links to previous and next node
+Linked occupies more memory because each node stores previous  and  next
+references.
+
+
+
+ArrayDeque is faster for adding and removing the elements at the end.
+
+ArrayDeque does not allow all.
+LinkedList allows null.
+
+It is best to use ArrayDeque when you only need deque or stack operations
+It is best to use LinkeList when you list operations.
+
+addFirst()
+addLast()
+offerFirst()
+offerLast()
+removeFirst()
+removeLast()
+pollFirst()
+pollLast()
+getFirst()
+getLast()
+peekFirst()
+peekLast()
+
+Stack Style methods:
+push()
+pop()
+peek()
+
+
+2.Array
+
+
+3.PriorityQueue:
+
+PriorityQueue is a class which implements queue interface
+It is used used to process the elements the elements based on the priority
+rather than insertion order.
+Elements in priority queue follows natural order by default.
+For numbers, the smallest number gets the highest priority.
+For Strings alphabetical(lexicographical) order is used.
+
+For custom objects, we can provide a comparator to define a priority.

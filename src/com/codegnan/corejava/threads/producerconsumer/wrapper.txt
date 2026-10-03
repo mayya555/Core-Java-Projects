@@ -1,0 +1,19 @@
+Wrapper classes:
+
+Wrapper classes provide an object representation of primitive values.
+They will also provide useful methods 
+
+
+
+byte  - byte
+short 
+int
+long
+float
+double
+char
+boolean 
+
+eg:to convert a primitive to an object
+int x = 10; //primitive
+Integer intObj = Integer

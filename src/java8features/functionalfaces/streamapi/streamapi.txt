@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+//Step2: Create a stream from the collection
+		Stream<String> stream = names.stream();
+		
+		//Step3: Apply intermediate operation
+		stream.filter(n->n.startsWith("R"));
+		
+		//Step4: Apply a terminal operation
+		stream.forEach(name->System.out.println(name));
+		
+		//the above 3 steps can be written in a single statement
+		
+		names.stream().filter(n->n.startsWith("R")).forEach(name->System.out.println(name));
+
+
+Intermediate Operations:
+=========================
+Intermediate operations are stream operations that process/transform a stream 
+and return another stream.
+
+Some examples 
+
+
+for eg:
+stream<String> stream  = names.stream().filter(name->name.startsWith("R"));
+
+
+- In the above , filter() method will not immediately process the elements.
+
+- Intermediate operations like filter(), will wait until a terminal operation
+   is called.
+   
+- That is the reason we call them as as lazy functions.
+- Lazy means execution is postponed
+- A terminal operation triggers the execution of the stream pipeline
+
+
+Terminal operations:
+=====================
+
+Terminal operations are stream operations that trigger the execution of the stream 
+pipeline and produce a final result or perform an action.
+
+Common terminal operations:
+forEach() - performs an action on each element
+collect() - collects elements into an collection
+toList() - collects elements into a List
+count() - returns the number of elements
+reduce() - combines elements into one result
+
+Terminal operations are called Eager operations.
+Eager means the operation executes thr stream pipeline immediately and 
+produces a result.
+
+
+Once a 
+
+
+
